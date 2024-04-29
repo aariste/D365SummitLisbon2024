@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxServiceGroup xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>AASCalculatorGroup</Name>
+	<Services>
+		<AxServiceGroupService>
+			<Name>AASCalculator</Name>
+			<Service>AASCalculator</Service>
+		</AxServiceGroupService>
+		<AxServiceGroupService>
+			<Name>AASSmartCalculator</Name>
+			<Service>AASSmartCalculator</Service>
+		</AxServiceGroupService>
+	</Services>
+</AxServiceGroup>

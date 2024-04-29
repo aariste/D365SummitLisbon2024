@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxClass xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>AASSmartCalculatorService</Name>
+	<SourceCode>
+		<Declaration><![CDATA[
+class AASSmartCalculatorService
+{
+}
+]]></Declaration>
+		<Methods>
+			<Method>
+				<Name>add</Name>
+				<Source><![CDATA[
+    public AASSmartCalculatorContract add(real _valueA, real _valueB)
+    {
+        AASSmartCalculatorContract ret = new AASSmartCalculatorContract();
+
+        try
+        {
+            ret.parmStatus('OK');
+            ret.parmResult(_valueA + _valueB);
+            ret.parmMessage('');
+
+        }
+        catch (Exception::Error)
+        {
+            ret.parmStatus('KO');
+            ret.parmResult(-1);
+            ret.parmMessage('Something went wrong');
+        }
+        
+        return ret;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>subtract</Name>
+				<Source><![CDATA[
+    public AASSmartCalculatorContract subtract(real _valueA, real _valueB)
+    {
+        AASSmartCalculatorContract ret = new AASSmartCalculatorContract();
+
+        try
+        {
+            ret.parmStatus('OK');
+            ret.parmResult(_valueA - _valueB);
+            ret.parmMessage('');
+
+        }
+        catch (Exception::Error)
+        {
+            ret.parmStatus('KO');
+            ret.parmResult(-1);
+            ret.parmMessage('Something went wrong');
+        }
+        
+        return ret;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>divide</Name>
+				<Source><![CDATA[
+    public AASSmartCalculatorContract divide(real _valueA, real _valueB)
+    {
+        AASSmartCalculatorContract ret = new AASSmartCalculatorContract();
+
+        try
+        {
+            if (_valueB == 0)
+            {
+                throw Exception::Numeric;
+            }
+
+            ret.parmStatus('OK');
+            ret.parmResult(_valueA / _valueB);
+            ret.parmMessage('');
+        }        
+        catch (Exception::Numeric)
+        {            
+            ret.parmStatus('KO');
+            ret.parmResult(-1);
+            ret.parmMessage("You can't divide by zero...");         
+        }
+        catch
+        {
+            ret.parmStatus('KO');
+            ret.parmResult(-1);
+            ret.parmMessage('Something went wrong');
+        }
+        
+        return ret;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>multiply</Name>
+				<Source><![CDATA[
+    public AASSmartCalculatorContract multiply(real _valueA, real _valueB)
+    {
+        AASSmartCalculatorContract ret = new AASSmartCalculatorContract();
+
+        try
+        {
+            ret.parmStatus('OK');
+            ret.parmResult(_valueA * _valueB);
+            ret.parmMessage('');
+
+        }
+        catch (Exception::Error)
+        {
+            ret.parmStatus('KO');
+            ret.parmResult(-1);
+            ret.parmMessage('Something went wrong');
+        }
+        
+        return ret;
+    }
+
+]]></Source>
+			</Method>
+		</Methods>
+	</SourceCode>
+</AxClass>
